@@ -1,0 +1,96 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	background:  linear-gradient(to top, hsl(293, 100%, 50%), hsl(167, 100%, 50%));
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.clock {
+	width:  350px;
+	height:  350px;
+	background-color: rgb(240, 236, 236, .7);
+	border-radius: 50%;
+	border:  3px solid;
+	position: relative;
+	
+}
+.clock .num{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+}
+.clock .num {
+	transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateY(-140px) rotate(calc(var(--i) * -30deg));
+}
+
+.clock .center {
+	width: 0.9rem;
+	height: 0.9rem;
+	background-color: #fd0;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.clock .hand{
+	--rotate: 0;
+	position:relative;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) rotate(calc(var(--rotate) * 1deg));
+}
+.clock .hand::before,
+.clock .hand::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.clock .hand::after {
+	transform-origin: bottom center;
+	transform: rotate(180deg);
+}
+
+.clock .hand.hour {
+	width: 1rem;
+}
+.clock .hand.hour::before {
+	border: 0.5rem solid transparent;
+	border-bottom: 6rem solid;
+}
+.clock .hand.hour::after {
+	border: 0.5rem solid transparent;
+	border-bottom: 1.3rem solid;
+}
+
+.clock .hand.minute {
+	width: 0.5rem;
+}
+.clock .hand.minute::before {
+	border: 0.25rem solid transparent;
+	border-bottom: 7.5rem solid;
+}
+.clock .hand.minute::after {
+	border: 0.25rem  solid transparent;
+	border-bottom: 1.5rem solid;
+}
+.clock .hand.second {
+	color: #f00;
+	width: 0.25rem;
+}
+.clock .hand.second::before {
+	border: 0.125rem solid transparent;
+	border-bottom: 8.5rem solid;
+}
+.clock .hand.second::after {
+	border: 0.125rem solid transparent;
+	border-bottom: 2rem solid;
+}
